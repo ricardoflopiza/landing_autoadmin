@@ -1,0 +1,63 @@
+
+
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endcomment %}
+    <style>
+        /* Default styles that can be overridden in child templates */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        footer {
+            background-color: #6c757d;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .container {
+            padding: 2rem;
+        }
+    </style>
+    {% block extra_head %}
+    <!-- Additional head elements can be added by child templates -->
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <h1>My Site</h1>
+        <nav>
+            <a href="{% url 'landing_page' %}" style="color: white; margin-right: 1rem;">Home</a>
+            <a href="{% url 'edit_landing_page' %}" style="color: white;">Edit Landing Page</a>
+        </nav>
+    </header>
+    <div class="container">
+        {% block content %}
+        <!-- Main content will be inserted here -->
+        {% endblock %}
+    </div>
+    <footer>
+        &copy; 2024 My Site. All rights reserved.
+    </footer>
+    {% block extra_js %}
+    <!-- Additional scripts can be added by child templates -->
+    {% endblock %}
+</body>
+</html>

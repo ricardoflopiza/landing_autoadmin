@@ -1,0 +1,17 @@
+<!-- templates/landing_page.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: {{ settings.background_color }};
+            color: {{ settings.text_color }};
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ settings.title }}</h1>
+    <h2>{{ settings.subtitle }}</h2>
+    <p>{{ settings.description }}</p>
+</body>
+</html>
